@@ -107,7 +107,13 @@ const ProjectDetailsPage = lazy(() =>
 );
 const KanbanPage = lazy(() => import("./pages/app/kanban"));
 const CalenderPage = lazy(() => import("./pages/app/calender"));
+const LinkSave = lazy(() => import("./pages/components/inputSave.jsx"))
+
 import Loading from "@/components/Loading";
+
+
+
+
 function App() {
   return (
     <main className="App  relative">
@@ -210,6 +216,7 @@ function App() {
         />
         <Route path="/*" element={<Layout />}>
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="savelink" element={<LinkSave />} />
           <Route path="ecommerce" element={<Ecommerce />} />
           <Route path="crm" element={<CrmPage />} />
           <Route path="project" element={<ProjectPage />} />

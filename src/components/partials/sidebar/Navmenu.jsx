@@ -7,6 +7,9 @@ import { useDispatch } from "react-redux";
 import useMobileMenu from "@/hooks/useMobileMenu";
 
 const Navmenu = ({ menus }) => {
+
+  console.log("this is menus", menus)
+
   const [activeSubmenu, setActiveSubmenu] = useState(null);
 
   const toggleSubmenu = (i) => {

@@ -4,6 +4,7 @@ import LoginForm from "./common/login-form";
 import Social from "./common/social";
 import useDarkMode from "@/hooks/useDarkMode";
 import { ToastContainer } from "react-toastify";
+import "../../globalstyle.scss"
 
 // image import
 import LogoWhite from "@/assets/images/logo/logo-white.svg";
@@ -37,8 +38,8 @@ const login = () => {
           {/*    />*/}
           {/*  </div>*/}
           {/*</div>*/}
-          <div className="right-column relative">
-            <div className="inner-content h-full flex flex-col bg-white dark:bg-slate-800">
+          <div className="right-column">
+            <div className="inner-content">
               <div className="auth-box h-full flex flex-col justify-center">
                 <div className="mobile-logo text-center mb-6 lg:hidden block">
                   <Link to="/">
@@ -50,7 +51,7 @@ const login = () => {
                   </Link>
                 </div>
                 <div className="text-center 2xl:mb-10 mb-4">
-                  <h4 className="font-medium">Sign in</h4>
+                  <h4 style={{color: "white"}}>RauJet</h4>
                   {/*<div className="text-slate-500 text-base">*/}
                   {/*  Sign in to your account to start using Dashcode*/}
                   {/*</div>*/}
