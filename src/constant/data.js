@@ -39,7 +39,7 @@ export const menuItems = [
     isHide: true,
     child: [
       {
-        childtitle: "Projects",
+        childtitle: "Traffic",
         childlink: "projects",
       },
 
@@ -127,7 +127,7 @@ export const menuItems = [
 
   {
     title: "Diagrams",
-    icon: "heroicons-outline:document",
+    icon: "heroicons-outline:view-boards",
     link: "#",
     isHide: true,
     child: [

@@ -27,6 +27,7 @@ const Textinput = ({
   options,
   onFocus,
   defaultValue,
+    inputRef,
 
   ...rest
 }) => {
@@ -66,6 +67,7 @@ const Textinput = ({
             disabled={disabled}
             id={id}
             onChange={onChange}
+            ref={inputRef}
           />
         )}
         {!name && !isMask && (
@@ -78,6 +80,7 @@ const Textinput = ({
             defaultValue={defaultValue}
             onChange={onChange}
             id={id}
+            ref={inputRef}
           />
         )}
         {name && isMask && (

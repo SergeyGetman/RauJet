@@ -74,7 +74,6 @@ const LoginForm = () => {
 
 
   const checkAnswerDataServer = (dataResponse) => {
-    console.log("dataResponse", dataResponse)
     if(dataResponse.result === "ok"){
       alert("Register successfully")
       dispatch(handleLogin(true));

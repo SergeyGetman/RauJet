@@ -5,7 +5,6 @@ const expectDataServer = {
 
 async function getAuthAvtorized(getDataUserForm) {
  const {login, pass} = getDataUserForm
-    console.log("getDataUserForm222", getDataUserForm)
 
     try {
         const url = `https://test.raujet.com/Auth?login=${login}&pass=${pass}`

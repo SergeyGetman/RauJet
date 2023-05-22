@@ -154,7 +154,6 @@ export const appTodoSlice = createSlice({
     isLoading: false,
     editItem: {},
     trashTodo: [],
-    todoSearch: "",
     mobileTodoSidebar: false,
   },
   reducers: {

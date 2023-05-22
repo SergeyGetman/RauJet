@@ -1,45 +1,48 @@
-import React from 'react';
+import React, {useRef, useState} from 'react';
 import Card from "@/components/ui/Card.jsx";
 import Textinput from "@/components/ui/Textinput.jsx";
-import Textarea from "@/components/ui/Textarea.jsx";
-import Select from "@/components/ui/Select.jsx";
+import Button from "@/components/ui/Button.jsx";
+import "./style.scss"
+
 
 const InputSave = () => {
+
+    const [copySuccess, setCopySuccess] = useState('');
+    const textAreaRef = useRef(null);
+
+    function copyToClipboard() {
+        textAreaRef.current.select();
+        navigator.clipboard.writeText(textAreaRef.current.value)
+            .then(() => {
+                setCopySuccess(textAreaRef.current.value);
+            })
+            .catch((error) => {
+                console.error('Copy to clipboard failed:', error);
+            });
+    }
+
+
     return (
-        <div>
-            <Card title="Basic Inputs">
-                <div className="space-y-3">
+        <div className="fromGroup" >
+            <Card title="copy links" className="card-body">
+                <div className="card-body__tooltip">
                     <Textinput
                         label="Project Name*"
                         id="pn"
                         type="text"
-                        placeholder="Management dashboard "
+                        placeholder="link copy "
+                        inputRef={textAreaRef}
+                        defaultValue={copySuccess}
+                        className="input-hol"
                     />
-                    <Textinput
-                        label="Readonly Input"
-                        id="pn2"
-                        readonly
-                        type="text"
-                        placeholder="You can't update me :P"
-                    />
-                    <Textinput
-                        label=" Disabled Input"
-                        id="pn3"
-                        placeholder=" Disabled Input"
-                        disabled
-                        type="text"
-                    />
-                    <Textarea
-                        label="Project description"
-                        id="pn4"
-                        placeholder="Type here"
-                    />
-                    <Select
-                        options={["Option 1", "Option 2", "Option 3"]}
-                        label="Select Option's"
-                    />
+                    <Button onClick={(e) => copyToClipboard(e)}>Copy</Button>
+
+
                 </div>
             </Card>
+
+
+
         </div>
     );
 };
