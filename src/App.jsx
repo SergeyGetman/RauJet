@@ -107,13 +107,12 @@ const ProjectDetailsPage = lazy(() =>
 );
 const KanbanPage = lazy(() => import("./pages/app/kanban"));
 const CalenderPage = lazy(() => import("./pages/app/calender"));
-const LinkSave = lazy(() => import("./pages/components/inputSave.jsx"))
+const LinkSave = lazy(() => import("./pages/components/inputSave.jsx"));
 
 import Loading from "@/components/Loading";
 import PanelDashboard from "@/pages/components/PanelDashboard.jsx";
-
-
-
+import TestComponent from "@/pages/components/Test.jsx";
+import Traffic from "@/pages/components/Traffic.jsx";
 
 function App() {
   return (
@@ -218,6 +217,8 @@ function App() {
         <Route path="/*" element={<Layout />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="panel-dashboard" element={<PanelDashboard />} />
+          <Route path="traffic" element={<Traffic />} />
+          <Route path="test-component" element={<TestComponent />} />
           <Route path="savelink" element={<LinkSave />} />
           <Route path="ecommerce" element={<Ecommerce />} />
           <Route path="crm" element={<CrmPage />} />

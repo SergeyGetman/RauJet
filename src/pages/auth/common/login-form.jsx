@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { handleLogin } from "./store";
 import { toast } from "react-toastify";
-import {rest} from "../../../rest.js"
+import { rest } from "../../../rest.js";
 
 const schema = yup
   .object({
@@ -57,30 +57,26 @@ const LoginForm = () => {
     pass: "",
   });
 
-  const handleChangeEmailForm = (
-      e
-  ) => {
+  const handleChangeEmailForm = (e) => {
     setGetDataUserForm({ ...getDataUserForm, login: e.target.value });
   };
 
-  const handleChangePasswordForm = (
-      e
-  ) => {
+  const handleChangePasswordForm = (e) => {
     setGetDataUserForm({ ...getDataUserForm, pass: e.target.value });
   };
 
-  const [answerFromServer, setAnswerFromServer] = useState(localStorage.answerFromServer || null)
+  const [answerFromServer, setAnswerFromServer] = useState(
+    localStorage.answerFromServer || null
+  );
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-
   const checkAnswerDataServer = (dataResponse) => {
-    if(dataResponse.result === "ok"){
-      alert("Register successfully")
+    if (dataResponse.result === "ok") {
+      alert("Register successfully");
       dispatch(handleLogin(true));
-      navigate("/dashboard");
+      navigate("/panel-dashboard");
     }
   };
-
 
   const handleSubmit = async (event) => {
     event?.preventDefault();
@@ -91,8 +87,6 @@ const LoginForm = () => {
       const response = await rest.getAuthAvtorized(getDataUserForm);
       checkAnswerDataServer(response);
       localStorage.setItem("answerFromServer", JSON.stringify(response));
-
-
     } catch (error) {
       console.error(error);
     }

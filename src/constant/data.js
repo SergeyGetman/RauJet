@@ -152,13 +152,19 @@ export const menuItems = [
     title: "Traffic",
     isHide: true,
     icon: "heroicons-outline:view-grid-add",
-    link: "projects",
+    link: "traffic",
   },
   {
     title: "Links",
     isHide: true,
     icon: "heroicons-outline:user",
     link: "savelink",
+  },
+  {
+    title: "TEST",
+    isHide: true,
+    icon: "heroicons-outline:clipboard-list",
+    link: "test-component",
   },
   // {
   //   isHeadr: true,

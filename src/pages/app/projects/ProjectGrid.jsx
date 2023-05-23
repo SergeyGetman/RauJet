@@ -8,6 +8,7 @@ import ProgressBar from "@/components/ui/ProgressBar";
 import { removeProject, updateProject } from "./store";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Button from "@/components/ui/Button.jsx";
 
 const ProjectGrid = ({ project }) => {
   const { name, progress, status, members, assignee, des, startDate, endDate } =
@@ -28,6 +29,10 @@ const ProjectGrid = ({ project }) => {
   // handleClick to view project single page
   const handleClick = (project) => {
     navigate(`/projects/${project.id}`);
+  };
+
+  const handleChangeRoute = () => {
+    navigate("/savelink");
   };
 
   return (
@@ -143,18 +148,20 @@ const ProjectGrid = ({ project }) => {
             </div>
           </div>
         </div>
+        <div style={{ display: "grid" }}>
+          <Button onClick={handleChangeRoute}>Ссылки</Button>
+        </div>
 
         {/* total date */}
-        <div className="ltr:text-right rtl:text-left">
-          <span className="inline-flex items-center space-x-1 bg-danger-500 bg-opacity-[0.16] text-danger-500 text-xs font-normal px-2 py-1 rounded-full rtl:space-x-reverse">
-            <span>
-              {" "}
-              <Icon icon="heroicons-outline:clock" />
-            </span>
-            <span>{totaldays}</span>
-            <span>days left</span>
-          </span>
-        </div>
+        {/*<div className="ltr:text-right rtl:text-left">*/}
+        {/*  <span className="inline-flex items-center space-x-1 bg-danger-500 bg-opacity-[0.16] text-danger-500 text-xs font-normal px-2 py-1 rounded-full rtl:space-x-reverse">*/}
+        {/*    <span>*/}
+        {/*      {" "}*/}
+        {/*      <Icon icon="heroicons-outline:clock" />*/}
+        {/*    </span>*/}
+        {/*    <span>{totaldays}</span>*/}
+        {/*  </span>*/}
+        {/*</div>*/}
       </div>
     </Card>
   );

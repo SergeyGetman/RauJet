@@ -8,8 +8,7 @@ import useDarkMode from "@/hooks/useDarkMode";
 import LogoWhite from "@/assets/images/logo/logo-white.svg";
 import Logo from "@/assets/images/logo/logo.svg";
 import bgImage from "@/assets/images/all-img/login-bg.png";
-import "../../globalstyle.scss"
-
+import "../../globalstyle.scss";
 
 const login2 = () => {
   const [isDark] = useDarkMode();
@@ -54,9 +53,6 @@ const login2 = () => {
                     Sign up
                   </Link>
                 </div>
-              </div>
-              <div className="auth-footer text-center">
-                Copyright 2021, Dashcode All Rights Reserved.
               </div>
             </div>
           </div>
