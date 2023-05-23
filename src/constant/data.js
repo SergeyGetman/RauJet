@@ -4,81 +4,81 @@ export const menuItems = [
     title: "menu",
   },
 
-  {
-    title: "Panel",
-    icon: "heroicons-outline:home",
-    isOpen: true,
-    isHide: true,
-    child: [
-      {
-        childtitle: "Analytics Dashboard",
-        childlink: "dashboard",
-      },
-      // {
-      //   childtitle: "Ecommerce Dashboard",
-      //   childlink: "ecommerce",
-      // },
-      // {
-      //   childtitle: "Project  Dashbaord",
-      //   childlink: "project",
-      // },
-      // {
-      //   childtitle: " CRM Dashbaord",
-      //   childlink: "crm",
-      // },
-      // {
-      //   childtitle: "Banking Dashboard",
-      //   childlink: "banking",
-      // },
-    ],
-  },
-  {
-    title: "Traffic",
-    icon: "heroicons-outline:document",
-    link: "#",
-    isHide: true,
-    child: [
-      {
-        childtitle: "Traffic",
-        childlink: "projects",
-      },
-
-    ],
-  },
-  {
-    title: "Links",
-    icon: "heroicons-outline:user",
-    isOpen: true,
-    isHide: true,
-    child: [
-      {
-        childtitle: "savelink",
-        childlink: "savelink",
-      },
-
-
-
-
-
-
-      // {
-      //   childtitle: "Ecommerce Dashboard",
-      //   childlink: "ecommerce",
-      // },
-      // {
-      //   childtitle: "Project  Dashbaord",
-      //   childlink: "project",
-      // },
-      // {
-      //   childtitle: " CRM Dashbaord",
-      //   childlink: "crm",
-      // },
-      // {
-      //   childtitle: "Banking Dashboard",
-      //   childlink: "banking",
-      // },
-    ],
-  },
+  // {
+  //   title: "Panel",
+  //   icon: "heroicons-outline:home",
+  //   link: "project",
+  //   isHide: true,
+  //   child: [
+  //     {
+  //       childtitle: "Analytics Dashboard",
+  //       childlink: "project",
+  //     },
+  //     // {
+  //     //   childtitle: "Ecommerce Dashboard",
+  //     //   childlink: "ecommerce",
+  //     // },
+  //     // {
+  //     //   childtitle: "Project  Dashbaord",
+  //     //   childlink: "project",
+  //     // },
+  //     // {
+  //     //   childtitle: " CRM Dashbaord",
+  //     //   childlink: "crm",
+  //     // },
+  //     // {
+  //     //   childtitle: "Banking Dashboard",
+  //     //   childlink: "banking",
+  //     // },
+  //   ],
+  // },
+  // {
+  //   title: "Traffic",
+  //   icon: "heroicons-outline:view-grid-add",
+  //   link: "#",
+  //   isHide: true,
+  //   // child: [
+  //   //   {
+  //   //     childtitle: "Traffic",
+  //   //     childlink: "projects",
+  //   //   },
+  //   //
+  //   // ],
+  // },
+  // {
+  //   title: "Links",
+  //   icon: "heroicons-outline:user",
+  //   isOpen: true,
+  //   isHide: true,
+  //   child: [
+  //     {
+  //       childtitle: "savelink",
+  //       childlink: "savelink",
+  //     },
+  //
+  //
+  //
+  //
+  //
+  //
+  //     // {
+  //     //   childtitle: "Ecommerce Dashboard",
+  //     //   childlink: "ecommerce",
+  //     // },
+  //     // {
+  //     //   childtitle: "Project  Dashbaord",
+  //     //   childlink: "project",
+  //     // },
+  //     // {
+  //     //   childtitle: " CRM Dashbaord",
+  //     //   childlink: "crm",
+  //     // },
+  //     // {
+  //     //   childtitle: "Banking Dashboard",
+  //     //   childlink: "banking",
+  //     // },
+  //   ],
+  // },
   // {
   //   title: "changelog",
   //   icon: "heroicons:arrow-trending-up",
@@ -125,21 +125,40 @@ export const menuItems = [
   //   link: "todo",
   // },
 
+  // {
+  //   title: "Diagrams",
+  //   icon: "heroicons-outline:view-boards",
+  //   link: "#",
+  //   isHide: true,
+  //   child: [
+  //     {
+  //       childtitle: "Projects",
+  //       childlink: "projects",
+  //     },
+  //     {
+  //       childtitle: "Project Details",
+  //       childlink: "project-details",
+  //     },
+  //   ],
+  // },
+
   {
-    title: "Diagrams",
-    icon: "heroicons-outline:view-boards",
-    link: "#",
+    title: "Panel",
     isHide: true,
-    child: [
-      {
-        childtitle: "Projects",
-        childlink: "projects",
-      },
-      {
-        childtitle: "Project Details",
-        childlink: "project-details",
-      },
-    ],
+    icon: "heroicons-outline:home",
+    link: "panel-dashboard",
+  },
+  {
+    title: "Traffic",
+    isHide: true,
+    icon: "heroicons-outline:view-grid-add",
+    link: "projects",
+  },
+  {
+    title: "Links",
+    isHide: true,
+    icon: "heroicons-outline:user",
+    link: "savelink",
   },
   // {
   //   isHeadr: true,

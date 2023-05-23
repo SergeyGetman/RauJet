@@ -110,6 +110,7 @@ const CalenderPage = lazy(() => import("./pages/app/calender"));
 const LinkSave = lazy(() => import("./pages/components/inputSave.jsx"))
 
 import Loading from "@/components/Loading";
+import PanelDashboard from "@/pages/components/PanelDashboard.jsx";
 
 
 
@@ -216,6 +217,7 @@ function App() {
         />
         <Route path="/*" element={<Layout />}>
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="panel-dashboard" element={<PanelDashboard />} />
           <Route path="savelink" element={<LinkSave />} />
           <Route path="ecommerce" element={<Ecommerce />} />
           <Route path="crm" element={<CrmPage />} />
