@@ -10,6 +10,7 @@ const ProgressBar = ({
   striped,
   animate,
   showValue,
+  gamma,
 }) => {
   return (
     <div className="relative">
@@ -32,6 +33,7 @@ const ProgressBar = ({
               striped={striped}
               animate={animate}
               showValue={showValue}
+              color={gamma}
             />
           </div>
         )

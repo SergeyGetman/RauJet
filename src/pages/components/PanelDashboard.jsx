@@ -1,17 +1,18 @@
 import React from "react";
 import Card from "@/components/ui/Card.jsx";
 import SelectMonth from "@/components/partials/SelectMonth.jsx";
-import HomeBredCurbs from "@/pages/dashboard/HomeBredCurbs.jsx";
 import ImageBlock1 from "@/components/partials/widget/block/image-block-1.jsx";
 import GroupChart1 from "@/components/partials/widget/chart/group-chart-1.jsx";
 import RadarChart from "@/components/partials/widget/chart/radar-chart.jsx";
 import DonutChart from "@/components/partials/widget/chart/donut-chart.jsx";
 import BasicArea from "@/pages/chart/appex-chart/BasicArea.jsx";
+import Calendar from "@/pages/components/redisignedComponents/Calendar.jsx";
+import HomeBredCurbs from "@/pages/dashboard/HomeBredCurbs.jsx";
 
 const PanelDashboard = () => {
   return (
     <>
-      <HomeBredCurbs title="Dashboard" />
+      <HomeBredCurbs title="RAU JET" />
       <div className="grid grid-cols-12 gap-5 mb-5">
         <div className="2xl:col-span-3 lg:col-span-4 col-span-12">
           <ImageBlock1 />

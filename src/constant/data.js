@@ -143,23 +143,23 @@ export const menuItems = [
   // },
 
   {
-    title: "Panel",
+    title: "ПАНЕЛЬ",
     isHide: true,
     icon: "heroicons-outline:home",
     link: "panel-dashboard",
   },
   {
-    title: "Traffic",
+    title: "ТРАФИК",
     isHide: true,
     icon: "heroicons-outline:view-grid-add",
     link: "traffic",
   },
-  {
-    title: "Links",
-    isHide: true,
-    icon: "heroicons-outline:user",
-    link: "savelink",
-  },
+  // {
+  //   title: "Links",
+  //   isHide: true,
+  //   icon: "heroicons-outline:user",
+  //   link: "savelink",
+  // },
   {
     title: "TEST",
     isHide: true,

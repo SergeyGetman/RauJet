@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useSelector } from "react-redux";
 
-const Bar = ({ value, className, showValue, striped, animate }) => {
+const Bar = ({ value, className, showValue, striped, animate, color }) => {
   // striped style
 
   return (
@@ -10,7 +11,7 @@ const Bar = ({ value, className, showValue, striped, animate }) => {
       }
       ${animate ? "animate-stripes" : ""}
       `}
-      style={{ width: `${value}%` }}
+      style={{ background: `${color}` }}
     >
       {showValue && (
         <span className="text-[10px] text-white font-bold">{value + "%"}</span>

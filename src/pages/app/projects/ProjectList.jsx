@@ -14,6 +14,7 @@ import {
   useGlobalFilter,
   usePagination,
 } from "react-table";
+import logo from "@/assets/images/icons-smile/money.png";
 
 const ProjectList = ({ projects }) => {
   const dispatch = useDispatch();

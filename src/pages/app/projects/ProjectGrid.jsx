@@ -9,10 +9,24 @@ import { removeProject, updateProject } from "./store";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Button from "@/components/ui/Button.jsx";
+import "./style.scss";
 
 const ProjectGrid = ({ project }) => {
-  const { name, progress, status, members, assignee, des, startDate, endDate } =
-    project;
+  const {
+    name,
+    progress,
+    status,
+    members,
+    assignee,
+    des,
+    startDate,
+    endDate,
+    iconTitle,
+    count,
+    registerCount,
+    color,
+  } = project;
+
   const dispatch = useDispatch();
 
   const [start, setStart] = useState(new Date(startDate));
@@ -37,12 +51,12 @@ const ProjectGrid = ({ project }) => {
 
   return (
     <Card>
-      {/* header */}
       <header className="flex justify-between items-end">
         <div className="flex space-x-4 items-center rtl:space-x-reverse">
           <div className="flex-none">
             <div className="h-10 w-10 rounded-md text-lg bg-slate-100 text-slate-900 dark:bg-slate-600 dark:text-slate-200 flex flex-col items-center justify-center font-normal capitalize">
-              {name.charAt(0) + name.charAt(1)}
+              {/*{name.charAt(0) + name.charAt(1)}*/}
+              <img src={iconTitle} alt="" />
             </div>
           </div>
           <div className="font-medium text-base leading-6">
@@ -106,47 +120,48 @@ const ProjectGrid = ({ project }) => {
         {des}
       </div>
       {/* assignee */}
-      <div className="flex space-x-4 rtl:space-x-reverse">
+      <div className="table-info">
         {/* start date */}
         <div>
-          <span className="block date-label">Start date</span>
-          <span className="block date-text">{startDate}</span>
+          <span className="block date-text">{count}</span>
+          <span className="block date-label">Чистая прибыль</span>
         </div>
         {/* end date */}
         <div>
-          <span className="block date-label">Start date</span>
-          <span className="block date-text">{endDate}</span>
+          {/*<span className="block date-text">{registerCount}</span>*/}
+          <span className="block date-label">{`CPA:${count}`}</span>
+        </div>
+        <div>
+          <span className="block date-text">{`регистраций: ${registerCount}`}</span>
         </div>
       </div>
       {/* progress bar */}
-      <div className="ltr:text-right rtl:text-left text-xs text-slate-600 dark:text-slate-300 mb-1 font-medium">
-        {progress}%
-      </div>
-      <ProgressBar value={progress} className="bg-primary-500" />
+      <div className="ltr:text-right rtl:text-left text-xs text-slate-600 dark:text-slate-300 mb-1 font-medium"></div>
+      <ProgressBar value={progress} className="bg-primary-500" gamma={color} />
       {/* assignee and total date */}
       <div className="grid grid-cols-2 gap-4 mt-6">
         {/* assignee */}
         <div>
           <div className="text-slate-400 dark:text-slate-400 text-sm font-normal mb-3">
-            Assigned to
+            {/*Assigned to*/}
           </div>
-          <div className="flex justify-start -space-x-1.5 rtl:space-x-reverse">
-            {assignee?.map((user, userIndex) => (
-              <div
-                className="h-6 w-6 rounded-full ring-1 ring-slate-100"
-                key={userIndex}
-              >
-                <img
-                  src={user.image}
-                  alt={user.label}
-                  className="w-full h-full rounded-full"
-                />
-              </div>
-            ))}
-            <div className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-300 text-xs ring-2 ring-slate-100 dark:ring-slate-700 rounded-full h-6 w-6 flex flex-col justify-center items-center">
-              +2
-            </div>
-          </div>
+          {/*<div className="flex justify-start -space-x-1.5 rtl:space-x-reverse">*/}
+          {/*  {assignee?.map((user, userIndex) => (*/}
+          {/*    <div*/}
+          {/*      className="h-6 w-6 rounded-full ring-1 ring-slate-100"*/}
+          {/*      key={userIndex}*/}
+          {/*    >*/}
+          {/*      <img*/}
+          {/*        src={user.image}*/}
+          {/*        alt={user.label}*/}
+          {/*        className="w-full h-full rounded-full"*/}
+          {/*      />*/}
+          {/*    </div>*/}
+          {/*  ))}*/}
+          {/*  <div className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-300 text-xs ring-2 ring-slate-100 dark:ring-slate-700 rounded-full h-6 w-6 flex flex-col justify-center items-center">*/}
+          {/*    +2*/}
+          {/*  </div>*/}
+          {/*</div>*/}
         </div>
         <div style={{ display: "grid" }}>
           <Button onClick={handleChangeRoute}>Ссылки</Button>

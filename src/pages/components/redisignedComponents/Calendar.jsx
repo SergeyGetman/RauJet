@@ -3,7 +3,7 @@ import Icon from "@/components/ui/Icon";
 import dayjs from "dayjs";
 import Datepicker from "react-tailwindcss-datepicker";
 
-const HomeBredCurbs = ({ title }) => {
+const Calendar = ({ title }) => {
   const [value, setValue] = useState({
     startDate: new Date(),
     endDate: new Date().setMonth(11),
@@ -40,4 +40,4 @@ const HomeBredCurbs = ({ title }) => {
   );
 };
 
-export default HomeBredCurbs;
+export default Calendar;

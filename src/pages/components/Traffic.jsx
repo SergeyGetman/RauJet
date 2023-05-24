@@ -18,7 +18,6 @@ const Traffic = () => {
 
   const { projects } = useSelector((state) => state.project);
 
-  console.log("projects", projects);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,6 +29,7 @@ const Traffic = () => {
 
   return (
     <div>
+      {`Список активных типов трафика ${projects?.length}`}
       <ToastContainer />
       <div className="flex flex-wrap justify-between items-center mb-4">
         <div
@@ -44,7 +44,6 @@ const Traffic = () => {
       {isLoaded && filler === "list" && (
         <TableLoading count={projects?.length} />
       )}
-
       {filler === "grid" && !isLoaded && (
         <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
           {projects.map((project, projectIndex) => (
@@ -57,7 +56,6 @@ const Traffic = () => {
           <ProjectList projects={projects} />
         </div>
       )}
-
       <AddProject />
       <EditProject />
     </div>

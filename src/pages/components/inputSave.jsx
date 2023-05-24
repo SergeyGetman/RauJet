@@ -76,6 +76,14 @@ const InputSave = () => {
             </div>
           </Card>
         </div>
+        <div className="card-body__tooltip-cards">
+          <Card title="подписчики" subtitle="Новых подписчиков: 1"></Card>
+          <Card title="регистрация" subtitle="Кол-во регистраций: 2"></Card>
+          <Card title="депозиты" subtitle="Кол-во депозитов: 0"></Card>
+          <Card title="отписки" subtitle="Отписалось по данной ссылке"></Card>
+          <Card title="СРА" subtitle="Количество CPA квалификаций"></Card>
+          <Card title="Доход" subtitle="Примерный доход: 748$"></Card>
+        </div>
       </div>
     </div>
   );
