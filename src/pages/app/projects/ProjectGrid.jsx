@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useId, useState } from "react";
 import Card from "@/components/ui/Card";
 import Dropdown from "@/components/ui/Dropdown";
 // import menu form headless ui
@@ -39,14 +39,16 @@ const ProjectGrid = ({ project }) => {
     setTotaldays(diffDays);
   }, [start, end]);
 
+  const id = useId();
+
   const navigate = useNavigate();
   // handleClick to view project single page
   const handleClick = (project) => {
-    navigate(`/projects/${project.id}`);
+    navigate(`/traffic/${project.id}`);
   };
 
   const handleChangeRoute = () => {
-    navigate("/savelink");
+    navigate(`/traffic/${project.id}`);
   };
 
   return (
@@ -163,9 +165,12 @@ const ProjectGrid = ({ project }) => {
           {/*  </div>*/}
           {/*</div>*/}
         </div>
-        <div style={{ display: "grid" }}>
+        <div style={{ display: "grid", marginTop: "20px" }}>
           <Button onClick={handleChangeRoute}>Ссылки</Button>
         </div>
+        {/*<div style={{ marginTop: "-60px" }}>*/}
+        {/*  <Button onClick={handleChangeRoute}>Изменить</Button>*/}
+        {/*</div>*/}
 
         {/* total date */}
         {/*<div className="ltr:text-right rtl:text-left">*/}

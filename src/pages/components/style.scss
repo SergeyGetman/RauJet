@@ -23,8 +23,8 @@
   }
 
   button {
-
     margin-top: auto;
+    left: 4rem;
   }
 }
 
@@ -45,4 +45,18 @@
   display: grid;
   grid-template-columns: 70% 1fr;
   grid-gap: 1rem;
+}
+
+.traffic{
+  position: relative;
+  &__btn {
+    position: absolute;
+    margin-left: auto;
+    margin-top: -2.5rem;
+    right: 0;
+  }
+}
+
+.changeColor{
+  background-color: #299d23;
 }

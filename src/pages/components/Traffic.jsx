@@ -3,13 +3,15 @@ import useWidth from "@/hooks/useWidth.js";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import Button from "@/components/ui/Button.jsx";
-import { toggleAddModal } from "@/pages/app/projects/store.js";
+import { openModal, toggleAddModal } from "@/pages/app/projects/store.js";
 import GridLoading from "@/components/skeleton/Grid.jsx";
 import TableLoading from "@/components/skeleton/Table.jsx";
 import ProjectGrid from "@/pages/app/projects/ProjectGrid.jsx";
 import ProjectList from "@/pages/app/projects/ProjectList.jsx";
 import AddProject from "@/pages/app/projects/AddProject.jsx";
 import EditProject from "@/pages/app/projects/EditProject.jsx";
+import "./style.scss";
+import { ModalOpenTrafficWindow } from "@/pages/components/redisignedComponents/TrafficDetail.jsx";
 
 const Traffic = () => {
   const [filler, setfiller] = useState("grid");
@@ -17,6 +19,7 @@ const Traffic = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const { projects } = useSelector((state) => state.project);
+  const isOpen = useSelector((state) => state.project.openProjectModal);
 
   const dispatch = useDispatch();
 
@@ -28,8 +31,36 @@ const Traffic = () => {
   }, [filler]);
 
   return (
-    <div>
+    <div className="traffic">
       {`Список активных типов трафика ${projects?.length}`}
+      <div className="traffic__btn">
+        <Button
+          icon="heroicons-outline:plus"
+          text="Add Project"
+          className="btn-dark dark:bg-slate-800  h-min text-sm font-normal"
+          iconClass=" text-lg"
+          onClick={() => dispatch(openModal(true))}
+        >
+          добавить новый
+        </Button>
+      </div>
+
+      <ModalOpenTrafficWindow text="добавить новый" labelText="new">
+        <div>
+          <input type="text" placeholder="Название трафика:" />
+        </div>{" "}
+        <div>
+          <input type="text" placeholder="Создания типа трафика для:" />
+        </div>
+        <div>
+          <Button text="создать" changeColor="#4a9dd5" />
+        </div>{" "}
+        <div>
+          <Button text="назад" changeColor="#c34736" />
+        </div>
+      </ModalOpenTrafficWindow>
+      {/*{true ? <ModalOpenTrafficWindow /> : null}*/}
+
       <ToastContainer />
       <div className="flex flex-wrap justify-between items-center mb-4">
         <div
@@ -51,12 +82,13 @@ const Traffic = () => {
           ))}
         </div>
       )}
+
       {filler === "list" && !isLoaded && (
         <div>
           <ProjectList projects={projects} />
         </div>
       )}
-      <AddProject />
+      {/*<AddProject />*/}
       <EditProject />
     </div>
   );

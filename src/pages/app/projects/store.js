@@ -131,6 +131,10 @@ export const appProjectSlice = createSlice({
     ],
   },
   reducers: {
+    openModal: (state, action) => {
+      state.openProjectModal = action.payload;
+    },
+
     toggleAddModal: (state, action) => {
       state.openProjectModal = action.payload;
     },

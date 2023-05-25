@@ -3,6 +3,7 @@ import GroupChart2 from "@/components/partials/widget/chart/group-chart-2.jsx";
 import VidgetCounters from "@/pages/components/redisignedComponents/vidgetCounters.jsx";
 import Traffic from "@/pages/components/Traffic.jsx";
 import Calendar from "@/pages/components/redisignedComponents/Calendar.jsx";
+import ProjectPostPage from "@/pages/app/projects/index.jsx";
 
 const TestComponent = () => {
   return (
@@ -12,10 +13,11 @@ const TestComponent = () => {
           <GroupChart2 />
         </div>
 
-        <VidgetCounters />
+        {/*<VidgetCounters />*/}
       </div>
+      {/*<ProjectPostPage />*/}
       <Traffic />
-      <Calendar />
+      {/*<Calendar />*/}
     </>
   );
 };

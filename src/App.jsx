@@ -113,6 +113,7 @@ import Loading from "@/components/Loading";
 import PanelDashboard from "@/pages/components/PanelDashboard.jsx";
 import TestComponent from "@/pages/components/Test.jsx";
 import Traffic from "@/pages/components/Traffic.jsx";
+import { TrafficDetail } from "@/pages/components/redisignedComponents/TrafficDetail.jsx";
 
 function App() {
   return (
@@ -229,7 +230,7 @@ function App() {
           <Route path="email" element={<EmailPage />} />
           <Route path="chat" element={<ChatPage />} />
           <Route path="projects" element={<ProjectPostPage />} />
-          <Route path={"projects/:id"} element={<ProjectDetailsPage />} />
+          <Route path={"traffic/:id"} element={<TrafficDetail />} />
           <Route path="project-details" element={<ProjectDetailsPage />} />
           <Route path="kanban" element={<KanbanPage />} />
           <Route path="calender" element={<CalenderPage />} />

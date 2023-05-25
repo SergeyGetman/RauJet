@@ -74,7 +74,9 @@ const ProjectPostPage = () => {
             className="btn-dark dark:bg-slate-800  h-min text-sm font-normal"
             iconClass=" text-lg"
             onClick={() => dispatch(toggleAddModal(true))}
-          />
+          >
+            OPEN MODAL
+          </Button>
         </div>
       </div>
       {isLoaded && filler === "grid" && (
