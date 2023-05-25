@@ -7,6 +7,9 @@ import Button from "@/components/ui/Button.jsx";
 import { openModal } from "@/pages/app/projects/store.js";
 import { useDispatch, useSelector } from "react-redux";
 import Modal from "@/components/ui/Modal.jsx";
+import "./style.scss";
+import flagRu from "@/assets/images/icons-smile/ru.png";
+import flagGi from "@/assets/images/icons-smile/ind.png";
 
 export const TrafficDetail = () => {
   const { id } = useParams();
@@ -24,27 +27,23 @@ export const TrafficDetail = () => {
       <div className=" space-y-5">
         <div className="grid grid-cols-12 gap-5">
           <Card
-            title="About project"
+            title="Создано для Test"
             className="xl:col-span-5 col-span-12 lg:col-span-7 h-full"
           >
+            <div className="traffic-detail-icons">
+              <img src={flagRu} alt="ru" />
+              <img src={flagGi} alt="gi" />
+            </div>
+
             <div>
               <div className="text-base font-medium text-slate-800 dark:text-slate-100 mb-3">
-                Background information
+                Test Dev Link
               </div>
               <p className="text-sm text-slate-600 dark:text-slate-300">
-                The Optimistic Website Company - Amet minim mollit non deserunt
-                ullamco est sit aliqua dolor do amet sint. Velit officia
-                consequat duis enim velit mollit. Exercita -tion veniam
-                consequat sunt nostrud amet.
+                https://t.me/+x0q6LjYD4BxjYWMy
               </p>
               <br />
-              <p className="text-sm text-slate-600 dark:text-slate-300">
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint.The Optimistic Website Company - Amet minim mollit non
-                deserunt ullamco est sit aliqua dolor do amet sint. Velit
-                officia consequat duis enim velit mollit. Exercita -tion veniam
-                consequat sunt nostrud amet.
-              </p>
+
               <div className="flex flex-wrap mt-8">
                 <div className="xl:mr-8 mr-4 mb-3 space-y-1">
                   <div className="font-semibold text-slate-500 dark:text-slate-400">
@@ -66,18 +65,19 @@ export const TrafficDetail = () => {
                 </div>
               </div>
               {/* end flex */}
-              <div className="bg-slate-100 dark:bg-slate-700 rounded px-4 pt-4 pb-1 flex flex-wrap justify-between mt-6">
+              <div className="traffic-btn">
                 <Button onClick={handleChangeRoute}>ПОДРОБНЕЕ</Button>
+                <Button
+                  icon="heroicons-outline:plus"
+                  text="Add Project"
+                  className="btn-dark dark:bg-slate-800  h-min text-sm font-normal"
+                  iconClass=" text-lg"
+                  onClick={() => dispatch(openModal(true))}
+                >
+                  OPEN MODAL
+                </Button>
               </div>
-              <Button
-                icon="heroicons-outline:plus"
-                text="Add Project"
-                className="btn-dark dark:bg-slate-800  h-min text-sm font-normal"
-                iconClass=" text-lg"
-                onClick={() => dispatch(openModal(true))}
-              >
-                OPEN MODAL
-              </Button>
+
               <ModalOpenTrafficWindow text="Добавить" labelText="новый" />
             </div>
           </Card>

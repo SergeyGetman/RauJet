@@ -59,7 +59,6 @@ const Traffic = () => {
           <Button text="назад" changeColor="#c34736" />
         </div>
       </ModalOpenTrafficWindow>
-      {/*{true ? <ModalOpenTrafficWindow /> : null}*/}
 
       <ToastContainer />
       <div className="flex flex-wrap justify-between items-center mb-4">

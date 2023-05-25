@@ -8,10 +8,15 @@
 .card-body {
   flex: 1 1 auto;
   padding: 1.25rem;
+  min-height: 350px;
+
+  button {
+    margin-top: 20px;
+  }
 
 
   &__tooltip {
-    display: flex;
+  display: flex;
     align-items: center;
 
 
@@ -22,10 +27,7 @@
     }
   }
 
-  button {
-    margin-top: auto;
-    left: 4rem;
-  }
+
 }
 
 .card-body__tooltip-cards{

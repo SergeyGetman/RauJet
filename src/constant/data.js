@@ -143,13 +143,13 @@ export const menuItems = [
   // },
 
   {
-    title: "ПАНЕЛЬ",
+    title: "панель",
     isHide: true,
     icon: "heroicons-outline:home",
     link: "panel-dashboard",
   },
   {
-    title: "ТРАФИК",
+    title: "трафик",
     isHide: true,
     icon: "heroicons-outline:view-grid-add",
     link: "traffic",
@@ -160,12 +160,12 @@ export const menuItems = [
   //   icon: "heroicons-outline:user",
   //   link: "savelink",
   // },
-  {
-    title: "TEST",
-    isHide: true,
-    icon: "heroicons-outline:clipboard-list",
-    link: "test-component",
-  },
+  // {
+  //   title: "TEST",
+  //   isHide: true,
+  //   icon: "heroicons-outline:clipboard-list",
+  //   link: "test-component",
+  // },
   // {
   //   isHeadr: true,
   //   title: "Pages",

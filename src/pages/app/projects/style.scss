@@ -8,3 +8,21 @@
     font-weight: bold;
   }
 }
+
+.traffic-edit{
+  //display: grid;
+  //grid-template-columns: repeat(2, 1fr);
+  //grid-gap: 1rem;
+  //background-color: #c02222;
+  position: absolute;
+
+  &__block{
+    display: flex; /* Используем флексбокс для расположения кнопок в ряд */
+    gap: 1rem; /* Расстояние между кнопками */
+    button{
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}

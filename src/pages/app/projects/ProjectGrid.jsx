@@ -5,11 +5,12 @@ import Dropdown from "@/components/ui/Dropdown";
 import { Menu } from "@headlessui/react";
 import Icon from "@/components/ui/Icon";
 import ProgressBar from "@/components/ui/ProgressBar";
-import { removeProject, updateProject } from "./store";
+import { openModal, removeProject, updateProject } from "./store";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Button from "@/components/ui/Button.jsx";
 import "./style.scss";
+import { ModalOpenTrafficWindow } from "@/pages/components/redisignedComponents/TrafficDetail.jsx";
 
 const ProjectGrid = ({ project }) => {
   const {
@@ -26,6 +27,8 @@ const ProjectGrid = ({ project }) => {
     registerCount,
     color,
   } = project;
+
+  const isOpen = useSelector((state) => state.project.openProjectModal);
 
   const dispatch = useDispatch();
 
@@ -49,6 +52,10 @@ const ProjectGrid = ({ project }) => {
 
   const handleChangeRoute = () => {
     navigate(`/traffic/${project.id}`);
+  };
+
+  const openModalChangeData = () => {
+    dispatch(openModal(true));
   };
 
   return (
@@ -165,12 +172,24 @@ const ProjectGrid = ({ project }) => {
           {/*  </div>*/}
           {/*</div>*/}
         </div>
-        <div style={{ display: "grid", marginTop: "20px" }}>
-          <Button onClick={handleChangeRoute}>Ссылки</Button>
+        <div className="traffic-edit">
+          <div className="traffic-edit__block">
+            <Button
+              text="изменить"
+              changeColor="#ffb822"
+              onClick={openModalChangeData}
+            />
+            <Button text="ссылки" onClick={handleChangeRoute} />
+          </div>
+          <ModalOpenTrafficWindow text="изменить">
+            <div>
+              <input
+                type="text"
+                placeholder="вы пытаетесь изменить тип баера"
+              />
+            </div>
+          </ModalOpenTrafficWindow>
         </div>
-        {/*<div style={{ marginTop: "-60px" }}>*/}
-        {/*  <Button onClick={handleChangeRoute}>Изменить</Button>*/}
-        {/*</div>*/}
 
         {/* total date */}
         {/*<div className="ltr:text-right rtl:text-left">*/}
