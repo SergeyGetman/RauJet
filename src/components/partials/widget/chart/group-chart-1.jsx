@@ -1,5 +1,6 @@
 import React from "react";
 import Chart from "react-apexcharts";
+import logo from "@/assets/images/all-img/widget-bg-1.png";
 
 const shapeLine1 = {
   series: [
@@ -277,31 +278,42 @@ const statistics = [
     title: "Пользователи",
     count: "3,564",
     bg: "bg-[#E5F9FF] dark:bg-slate-900	",
+    backgroundImage: `url(${logo})`,
   },
   {
     name: shapeLine2,
     title: "Регистрации",
     count: "564",
     bg: "bg-[#FFEDE5] dark:bg-slate-900	",
+    backgroundImage: `url(${logo})`,
   },
   {
     name: shapeLine3,
     title: "Депозиты",
     count: "+5.0%",
     bg: "bg-[#EAE5FF] dark:bg-slate-900	",
+    backgroundImage: `url(${logo})`,
   },
   {
     name: shapeLine4,
     title: "CPA",
     count: "12",
     bg: "bg-[#b1daba] dark:bg-slate-900	",
+    backgroundImage: `url(${logo})`,
   },
 ];
 const GroupChart1 = () => {
   return (
     <>
       {statistics.map((item, i) => (
-        <div className={`py-[18px] px-4 rounded-[6px] ${item.bg}`} key={i}>
+        <div
+          className={`py-[18px] px-4 rounded-[6px] `}
+          style={{
+            backgroundImage: item.backgroundImage,
+            backgroundRepeat: "no-repeat",
+          }}
+          key={i}
+        >
           <div className="flex items-center space-x-6 rtl:space-x-reverse">
             <div className="flex-none">
               <Chart
@@ -313,10 +325,10 @@ const GroupChart1 = () => {
               />
             </div>
             <div className="flex-1">
-              <div className="text-slate-800 dark:text-slate-300 text-sm mb-1 font-medium">
+              <div className="text-slate-800 dark:text-slate-300 text-sm mb-1 font-medium text-black-800">
                 {item.title}
               </div>
-              <div className="text-slate-900 dark:text-white text-lg font-medium">
+              <div className="text-slate-900 dark:text-white text-lg font-medium ">
                 {item.count}
               </div>
             </div>

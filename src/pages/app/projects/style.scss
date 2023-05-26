@@ -1,28 +1,17 @@
-.table-info {
-  display: table;
-  padding: 5px;
-  margin: 5px;
+//.table-info {
+//  display: table;
+//  padding: 5px;
+//  margin: 5px;
+//
+//  span {
+//    font-size: 16px;
+//    font-weight: bold;
+//  }
+//}
+//
 
-  span {
-    font-size: 16px;
-    font-weight: bold;
-  }
+.card-body{
+  background: #e7e6e3;
+  border-radius: 10px;
 }
 
-.traffic-edit{
-  //display: grid;
-  //grid-template-columns: repeat(2, 1fr);
-  //grid-gap: 1rem;
-  //background-color: #c02222;
-  position: absolute;
-
-  &__block{
-    display: flex; /* Используем флексбокс для расположения кнопок в ряд */
-    gap: 1rem; /* Расстояние между кнопками */
-    button{
-      border-radius: 20px;
-      border: none;
-      cursor: pointer;
-    }
-  }
-}

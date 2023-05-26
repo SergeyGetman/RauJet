@@ -8,6 +8,7 @@ import DonutChart from "@/components/partials/widget/chart/donut-chart.jsx";
 import BasicArea from "@/pages/chart/appex-chart/BasicArea.jsx";
 import Calendar from "@/pages/components/redisignedComponents/Calendar.jsx";
 import HomeBredCurbs from "@/pages/dashboard/HomeBredCurbs.jsx";
+import imageTitleDashboard from "@/assets/images/all-img/widget-bg-1.png";
 
 const PanelDashboard = () => {
   return (
@@ -15,11 +16,14 @@ const PanelDashboard = () => {
       <HomeBredCurbs title="RAU JET" />
       <div className="grid grid-cols-12 gap-5 mb-5">
         <div className="2xl:col-span-3 lg:col-span-4 col-span-12">
-          <ImageBlock1 />
+          <ImageBlock1
+            text="количество пользователей"
+            image={imageTitleDashboard}
+          />
         </div>
         <div className="2xl:col-span-9 lg:col-span-8 col-span-12">
-          <Card bodyClass="p-4">
-            <div className="grid md:grid-cols-3 col-span-1 gap-4">
+          <Card bodyClass="p-4 display: contents">
+            <div className="grid md:grid-cols-4 col-span-1 gap-4">
               <GroupChart1 />
             </div>
           </Card>
@@ -72,25 +76,25 @@ const PanelDashboard = () => {
           </Card>
         </div>
       </div>
-      <div className="space-y-5">
-        <div className="grid grid-cols-12 gap-5">
-          <div className="lg:col-span-8 col-span-12 space-y-5">
-            <Card>
-              <div className="grid grid-cols-12 gap-5">
-                <div className="xl:col-span-4 col-span-12">
-                  <div className="bg-slate-50 dark:bg-slate-900 rounded-md p-4">
-                    <span className="block dark:text-slate-400 text-sm text-slate-600">
-                      Progress
-                    </span>
-                    <DonutChart />
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </div>
-          <div className="lg:col-span-4 col-span-12 space-y-5"></div>
-        </div>
-      </div>
+      {/*<div className="space-y-5">*/}
+      {/*  <div className="grid grid-cols-12 gap-5">*/}
+      {/*    <div className="lg:col-span-8 col-span-12 space-y-5">*/}
+      {/*      <Card>*/}
+      {/*        <div className="grid grid-cols-12 gap-5">*/}
+      {/*          <div className="xl:col-span-4 col-span-12">*/}
+      {/*            <div className="bg-slate-50 dark:bg-slate-900 rounded-md p-4">*/}
+      {/*              <span className="block dark:text-slate-400 text-sm text-slate-600">*/}
+      {/*                Progress*/}
+      {/*              </span>*/}
+      {/*              <DonutChart />*/}
+      {/*            </div>*/}
+      {/*          </div>*/}
+      {/*        </div>*/}
+      {/*      </Card>*/}
+      {/*    </div>*/}
+      {/*    <div className="lg:col-span-4 col-span-12 space-y-5"></div>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
     </>
   );
 };
