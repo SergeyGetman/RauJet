@@ -5,7 +5,12 @@ import Dropdown from "@/components/ui/Dropdown";
 import { Menu } from "@headlessui/react";
 import Icon from "@/components/ui/Icon";
 import ProgressBar from "@/components/ui/ProgressBar";
-import { openModal, removeProject, updateProject } from "./store";
+import {
+  editCardModal,
+  openModal,
+  removeProject,
+  updateProject,
+} from "./store";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Button from "@/components/ui/Button.jsx";
@@ -32,7 +37,7 @@ const ProjectGrid = ({ project }) => {
     countLinks,
   } = project;
 
-  const isOpen = useSelector((state) => state.project.openProjectModal);
+  const nameOLD = useSelector((state) => state.project.projects[0].name);
 
   const dispatch = useDispatch();
 
@@ -54,6 +59,12 @@ const ProjectGrid = ({ project }) => {
     navigate(`/traffic/${project.id}`);
   };
 
+  const handleChangeInputForm = (e) => {
+    console.log("123123", e.target.value);
+    const updatedName = e.target.value;
+    dispatch(editCardModal(updatedName));
+  };
+
   const handleChangeRoute = () => {
     navigate(`/traffic/${project.id}`);
   };
@@ -68,9 +79,13 @@ const ProjectGrid = ({ project }) => {
         <header className="flex justify-between items-end">
           <div className="flex space-x-4 items-center rtl:space-x-reverse">
             <div className="flex-none">
-              <div className="h-10 w-10 rounded-md text-lg bg-slate-100 text-slate-900 dark:bg-slate-600 dark:text-slate-200 flex flex-col items-center justify-center font-normal capitalize">
+              <div className="h-10 w-10 flex items-center justify-center">
                 {/*{name.charAt(0) + name.charAt(1)}*/}
-                <img src={iconTitle} alt="" />
+                <img
+                  src={iconTitle}
+                  alt=""
+                  className="object-cover rounded-full"
+                />
               </div>
             </div>
             <div className="font-medium text-base leading-6">
@@ -131,25 +146,32 @@ const ProjectGrid = ({ project }) => {
         </header>
         {/* description */}
         <div className="flex flex-row justify-between">
-          <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8">
+          <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 font-semibold">
             {des}
           </div>
-          <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 justify-end">
+          <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 justify-end font-semibold">
             {`отписок: ${undescribe}`}
           </div>
         </div>
         <div className="flex flex-row justify-between">
-          <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8">
-            {count} <br />
+          <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 font-bold text-xl">
+            {count}
+          </div>
+          <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 absolute">
+            <br />
             Чистая прибыль
           </div>
-          <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 justify-end">
-            {count} <br />
+
+          <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 justify-end font-bold text-xl">
+            {count}
+          </div>
+          <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 justify-end absolute right-10">
+            <br />
             Депозиты
           </div>
         </div>
         <div className="flex flex-row justify-between">
-          <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8">
+          <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 font-semibold">
             {`Регистраций: ${registerCount}`}
           </div>
           <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 justify-end">
@@ -184,12 +206,35 @@ const ProjectGrid = ({ project }) => {
         <div className="flex">
           {/* assignee */}
           <div className="flex flex-row justify-between">
-            <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 ">
+            <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 font-semibold">
               {`Количество ссылок: ${countLinks}`}
             </div>
-            <div className="flex text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 justify-end rounded-lg text-orange-700 mx-5">
+            <div className="flex text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 justify-end rounded-lg text-orange-700 mx-5 font-bold">
               {`Потрачено: ${spend}`}
             </div>
+
+            <div className="traffic-details__cards">
+              <Button
+                text="изменить"
+                changeColor="rgb(72 83 129)"
+                onClick={openModalChangeData}
+              />
+              <Button
+                text="ссылки"
+                onClick={handleChangeRoute}
+                changeColor="rgb(72 83 129)"
+              />
+            </div>
+            <ModalOpenTrafficWindow text="изменить">
+              <div>
+                <input
+                  type="text"
+                  placeholder="вы пытаетесь изменить name"
+                  value={nameOLD}
+                  onChange={handleChangeInputForm}
+                />
+              </div>
+            </ModalOpenTrafficWindow>
             {/*<div className="flex justify-start -space-x-1.5 rtl:space-x-reverse">*/}
             {/*  {assignee?.map((user, userIndex) => (*/}
             {/*    <div*/}
@@ -207,24 +252,6 @@ const ProjectGrid = ({ project }) => {
             {/*    +2*/}
             {/*  </div>*/}
             {/*</div>*/}
-          </div>
-          <div className="">
-            <div className="">
-              <Button
-                text="изменить"
-                changeColor="#ffb822"
-                onClick={openModalChangeData}
-              />
-              <Button text="ссылки" onClick={handleChangeRoute} />
-            </div>
-            <ModalOpenTrafficWindow text="изменить">
-              <div>
-                <input
-                  type="text"
-                  placeholder="вы пытаетесь изменить тип баера"
-                />
-              </div>
-            </ModalOpenTrafficWindow>
           </div>
 
           {/* total date */}

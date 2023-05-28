@@ -7,7 +7,7 @@
 
 .card-body {
   flex: 1 1 auto;
-  min-height: 350px;
+  height: 100%;
 
   button {
     margin-top: 20px;
@@ -17,6 +17,7 @@
   &__tooltip {
   display: flex;
     align-items: center;
+    margin: 10px;
 
 
     &__input-hol {

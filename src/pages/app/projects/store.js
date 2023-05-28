@@ -44,7 +44,7 @@ export const appProjectSlice = createSlice({
         count: "0.12$",
         countLinks: "2",
         registerCount: "1",
-        color: "red",
+        color: "#f1595c",
         endDate: "2022-10-06",
         progress: 75,
         category: [
@@ -84,7 +84,7 @@ export const appProjectSlice = createSlice({
         count: "22.12$",
         countLinks: "3",
         registerCount: "4",
-        color: "yellow",
+        color: "#fa916b",
         endDate: "2022-10-10",
         progress: 50,
 
@@ -125,7 +125,7 @@ export const appProjectSlice = createSlice({
         count: "123.00$",
         countLinks: "1",
         registerCount: "3",
-        color: "green",
+        color: "#50c793",
         endDate: "2022-10-10",
         progress: 50,
 
@@ -145,6 +145,19 @@ export const appProjectSlice = createSlice({
   reducers: {
     openModal: (state, action) => {
       state.openProjectModal = action.payload;
+    },
+    editCardModal: (state, action) => {
+      const updateName = action.payload;
+
+      return {
+        ...state,
+        projects: state.projects.map((project) => {
+          return {
+            ...project,
+            name: updateName,
+          };
+        }),
+      };
     },
 
     toggleAddModal: (state, action) => {
@@ -209,6 +222,7 @@ export const appProjectSlice = createSlice({
 
 export const {
   openModal,
+  editCardModal,
   pushProject,
   toggleAddModal,
   removeProject,

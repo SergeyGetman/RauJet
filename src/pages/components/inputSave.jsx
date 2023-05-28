@@ -66,8 +66,9 @@ const InputSave = () => {
       </div>
       <div>
         <div className="lg:col-span-2 col-span-1">
-          <Card title="Окупаемость">
+          <Card>
             <div className="space-y-4">
+              <h5>Окупаемость</h5>
               <h3>0.02%</h3>
               <h5>Процент окупаемости</h5>
               <p className="text-sm font-light text-primary-500">
@@ -76,13 +77,45 @@ const InputSave = () => {
             </div>
           </Card>
         </div>
-        <div className="card-body__tooltip-cards">
-          <Card title="подписчики" subtitle="Новых подписчиков: 1"></Card>
-          <Card title="регистрация" subtitle="Кол-во регистраций: 2"></Card>
-          <Card title="депозиты" subtitle="Кол-во депозитов: 0"></Card>
-          <Card title="отписки" subtitle="Отписалось по данной ссылке"></Card>
-          <Card title="СРА" subtitle="Количество CPA квалификаций"></Card>
-          <Card title="Доход" subtitle="Примерный доход: 748$"></Card>
+        <div className="grid grid-cols-3 gap-2 m-10 ">
+          <Card>
+            <div className="font-bold">
+              подписчики:
+              <div className="font-light">Новых подписчиков: 1</div>
+            </div>
+          </Card>
+          <Card>
+            <div className="font-bold">
+              регистрация:
+              <div className="font-light"> Кол-во регистраций: 2</div>
+            </div>
+          </Card>
+          <Card>
+            <div className="font-bold ">
+              депозиты:
+              <div className="font-light "> Кол-во депозитов: 0</div>
+            </div>
+          </Card>
+          <Card>
+            <div className="font-bold">
+              отписки:
+              <div className="font-light"> Отписалось по данной ссылке:</div>
+            </div>
+          </Card>
+          <Card>
+            <div className="font-bold">
+              СРА:
+              <div className="font-light"> Количество CPA квалификаций</div>
+            </div>
+          </Card>
+          <Card>
+            <div className="font-bold">
+              Доход:
+              <div className="font-light"> Примерный доход: 748$</div>
+            </div>
+          </Card>
+
+          {/*<Card title="Доход" subtitle="Примерный доход: 748$"></Card>*/}
         </div>
       </div>
     </div>

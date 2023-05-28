@@ -26,10 +26,7 @@ export const TrafficDetail = () => {
     <div>
       <div className=" space-y-5">
         <div className="grid grid-cols-12 gap-5">
-          <Card
-            title="Создано для Test"
-            className="xl:col-span-5 col-span-12 lg:col-span-7 h-full"
-          >
+          <Card className="xl:col-span-5 col-span-12 lg:col-span-7 h-full">
             <div className="traffic-detail-icons">
               <img src={flagRu} alt="ru" />
               <img src={flagGi} alt="gi" />
@@ -91,7 +88,8 @@ export const ModalOpenTrafficWindow = ({ text, labelText, children }) => {
   const isOpen = useSelector((state) => state.project.openProjectModal);
   const dispatch = useDispatch();
 
-  const handleClose = () => {
+  const handleClose = (e) => {
+    e.stopPropagation();
     dispatch(openModal(false));
   };
 
@@ -104,7 +102,11 @@ export const ModalOpenTrafficWindow = ({ text, labelText, children }) => {
       labelClass="btn-outline-dark"
       className="max-w-md"
       footerContent={
-        <Button text="добавить" className="btn-dark" onClick={handleClose} />
+        <Button
+          text="добавить"
+          className="btn-dark"
+          onClick={(e) => handleClose(e)}
+        />
       }
     >
       {children}
