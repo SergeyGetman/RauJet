@@ -90,7 +90,7 @@ const ProjectList = ({ projects }) => {
       },
     },
     {
-      Header: "Status",
+      Header: "Сумма чистого дохода",
       accessor: "progress",
       Cell: (row) => {
         return (
@@ -102,7 +102,7 @@ const ProjectList = ({ projects }) => {
     },
 
     {
-      Header: "action",
+      Header: "выбрать",
       accessor: "action",
       Cell: (row) => {
         return (

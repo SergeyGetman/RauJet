@@ -74,8 +74,8 @@ const shapeLine = {
 const statistics = [
   {
     name: shapeLine,
-    title: "Growth",
-    count: "+5.0%",
+    title: "Чистая прибыль",
+    count: "+115.0%",
     bg: "bg-[#EAE6FF] dark:bg-slate-900	",
     text: "text-[#5743BE]",
     icon: "heroicons:arrow-trending-up-solid",

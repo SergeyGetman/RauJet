@@ -102,6 +102,7 @@ const TodoPage = lazy(() => import("./pages/app/todo"));
 const EmailPage = lazy(() => import("./pages/app/email"));
 const ChatPage = lazy(() => import("./pages/app/chat"));
 const ProjectPostPage = lazy(() => import("./pages/app/projects"));
+
 const ProjectDetailsPage = lazy(() =>
   import("./pages/app/projects/project-details")
 );

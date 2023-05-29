@@ -63,7 +63,9 @@ export const TrafficDetail = () => {
               </div>
               {/* end flex */}
               <div className="traffic-btn">
-                <Button onClick={handleChangeRoute}>ПОДРОБНЕЕ</Button>
+                <Button onClick={handleChangeRoute} height="44px">
+                  ПОДРОБНЕЕ
+                </Button>
                 <Button
                   icon="heroicons-outline:plus"
                   text="Add Project"

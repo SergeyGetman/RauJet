@@ -36,10 +36,11 @@ const statistics = [
     icon: "heroicons-outline:calculator",
   },
 ];
-const GroupChart4 = () => {
+
+const GroupChart4 = ({ array }) => {
   return (
     <>
-      {statistics.map((item, i) => (
+      {array.map((item, i) => (
         <div
           key={i}
           className={`${item.bg} rounded-md p-4 bg-opacity-[0.15] dark:bg-opacity-50 text-center`}

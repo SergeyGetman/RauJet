@@ -10,6 +10,7 @@ const Card = ({
   bodyClass = "p-6",
   noborder,
   titleClass = "custom-class",
+  logo,
 }) => {
   const [skin] = useSkin();
 
@@ -30,6 +31,9 @@ const Card = ({
           <div>
             {title && <div className={`card-title ${titleClass}`}>{title}</div>}
             {subtitle && <div className="card-subtitle">{subtitle}</div>}
+            <div style={{ borderRadius: "50%", height: "50px", width: "50px" }}>
+              <img src={logo} alt="" />
+            </div>
           </div>
           {headerslot && <div className="card-header-slot">{headerslot}</div>}
         </header>
