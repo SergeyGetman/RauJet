@@ -1,9 +1,10 @@
 import React, { useEffect, useId, useState } from "react";
 import Card from "@/components/ui/Card";
 import Dropdown from "@/components/ui/Dropdown";
+import { Icon } from "@iconify/react";
 // import menu form headless ui
 import { Menu } from "@headlessui/react";
-import Icon from "@/components/ui/Icon";
+
 import ProgressBar from "@/components/ui/ProgressBar";
 import {
   editCardModal,
@@ -16,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "@/components/ui/Button.jsx";
 import "./style.scss";
 import { ModalOpenTrafficWindow } from "@/pages/components/redisignedComponents/TrafficDetail.jsx";
+import Icons from "@/pages/icons.jsx";
 
 const ProjectGrid = ({ project }) => {
   const {
@@ -35,6 +37,7 @@ const ProjectGrid = ({ project }) => {
     surname,
     undescribe,
     countLinks,
+    groupName,
   } = project;
 
   const nameOLD = useSelector((state) => state.project.projects[0].name);
@@ -60,7 +63,6 @@ const ProjectGrid = ({ project }) => {
   };
 
   const handleChangeInputForm = (e) => {
-    console.log("123123", e.target.value);
     const updatedName = e.target.value;
     dispatch(editCardModal(updatedName));
   };
@@ -74,7 +76,7 @@ const ProjectGrid = ({ project }) => {
   };
 
   return (
-    <div className="card-body">
+    <div className="card-body p-4">
       <Card>
         <header className="flex justify-between items-end">
           <div className="flex space-x-4 items-center rtl:space-x-reverse">
@@ -88,6 +90,7 @@ const ProjectGrid = ({ project }) => {
                 />
               </div>
             </div>
+
             <div className="font-medium text-base leading-6">
               <div className="dark:text-slate-200 text-slate-900 max-w-[160px] truncate">
                 {name}
@@ -146,7 +149,7 @@ const ProjectGrid = ({ project }) => {
         </header>
         {/* description */}
         <div className="flex flex-row justify-between">
-          <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 font-semibold">
+          <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 font-semibold mt-[-10]">
             {des}
           </div>
           <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 justify-end font-semibold">
@@ -162,20 +165,93 @@ const ProjectGrid = ({ project }) => {
             Чистая прибыль
           </div>
 
-          <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 justify-end font-bold text-xl">
+          <div className=" text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 justify-end font-semibold text-xl relative">
             {count}
-          </div>
-          <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 justify-end absolute right-10">
-            <br />
-            Депозиты
+            <div className="text-sm pt-4 pb-8 justify-end absolute top-5 ">
+              {groupName}
+            </div>
           </div>
         </div>
         <div className="flex flex-row justify-between">
           <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 font-semibold">
             {`Регистраций: ${registerCount}`}
           </div>
-          <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 justify-end">
+          <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 justify-end ">
             {`CPA : ${count}`}
+          </div>
+        </div>
+        <ProgressBar
+          value={progress}
+          className="bg-primary-500"
+          gamma={color}
+        />
+        <div className="flex flex-row justify-between">
+          <div className="relative m-1 p-6">
+            {/* assignee */}
+            <div className="flex flex-row justify-between">
+              <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 font-semibold">
+                {`Количество ссылок: ${countLinks}`}
+              </div>
+              <div className="flex text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 justify-end rounded-lg text-orange-700 mx-5 font-bold">
+                <Icon
+                  style={{ marginTop: "2px" }}
+                  icon="heroicons-outline:credit-card"
+                />
+                {`Потрачено: ${spend}`}
+              </div>
+              <div className="traffic-details__cards">
+                <Button
+                  text="изменить"
+                  changeColor="#feefe9"
+                  onClick={openModalChangeData}
+                  color={"black"}
+                />
+                <Button
+                  text="ссылки"
+                  onClick={handleChangeRoute}
+                  changeColor="#4669fa"
+                />
+              </div>
+
+              <ModalOpenTrafficWindow text="изменить">
+                <div>
+                  <input
+                    type="text"
+                    placeholder="вы пытаетесь изменить name"
+                    value={nameOLD}
+                    onChange={handleChangeInputForm}
+                  />
+                </div>
+              </ModalOpenTrafficWindow>
+              {/*<div className="flex justify-start -space-x-1.5 rtl:space-x-reverse">*/}
+              {/*  {assignee?.map((user, userIndex) => (*/}
+              {/*    <div*/}
+              {/*      className="h-6 w-6 rounded-full ring-1 ring-slate-100"*/}
+              {/*      key={userIndex}*/}
+              {/*    >*/}
+              {/*      <img*/}
+              {/*        src={user.image}*/}
+              {/*        alt={user.label}*/}
+              {/*        className="w-full h-full rounded-full"*/}
+              {/*      />*/}
+              {/*    </div>*/}
+              {/*  ))}*/}
+              {/*  <div className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-300 text-xs ring-2 ring-slate-100 dark:ring-slate-700 rounded-full h-6 w-6 flex flex-col justify-center items-center">*/}
+              {/*    +2*/}
+              {/*  </div>*/}
+              {/*</div>*/}
+            </div>
+
+            {/* total date */}
+            {/*<div className="ltr:text-right rtl:text-left">*/}
+            {/*  <span className="inline-flex items-center space-x-1 bg-danger-500 bg-opacity-[0.16] text-danger-500 text-xs font-normal px-2 py-1 rounded-full rtl:space-x-reverse">*/}
+            {/*    <span>*/}
+            {/*      {" "}*/}
+            {/*      <Icon icon="heroicons-outline:clock" />*/}
+            {/*    </span>*/}
+            {/*    <span>{totaldays}</span>*/}
+            {/*  </span>*/}
+            {/*</div>*/}
           </div>
         </div>
 
@@ -196,75 +272,8 @@ const ProjectGrid = ({ project }) => {
         {/*  </div>*/}
         {/*</div>*/}
         {/* progress bar */}
-        <div className="ltr:text-right rtl:text-left text-xs text-slate-600 dark:text-slate-300 mb-1 font-medium"></div>
-        <ProgressBar
-          value={progress}
-          className="bg-primary-500"
-          gamma={color}
-        />
+
         {/* assignee and total date */}
-        <div className="flex">
-          {/* assignee */}
-          <div className="flex flex-row justify-between">
-            <div className="text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 font-semibold">
-              {`Количество ссылок: ${countLinks}`}
-            </div>
-            <div className="flex text-slate-600 dark:text-slate-400 text-sm pt-4 pb-8 justify-end rounded-lg text-orange-700 mx-5 font-bold">
-              {`Потрачено: ${spend}`}
-            </div>
-
-            <div className="traffic-details__cards">
-              <Button
-                text="изменить"
-                changeColor="rgb(72 83 129)"
-                onClick={openModalChangeData}
-              />
-              <Button
-                text="ссылки"
-                onClick={handleChangeRoute}
-                changeColor="rgb(72 83 129)"
-              />
-            </div>
-            <ModalOpenTrafficWindow text="изменить">
-              <div>
-                <input
-                  type="text"
-                  placeholder="вы пытаетесь изменить name"
-                  value={nameOLD}
-                  onChange={handleChangeInputForm}
-                />
-              </div>
-            </ModalOpenTrafficWindow>
-            {/*<div className="flex justify-start -space-x-1.5 rtl:space-x-reverse">*/}
-            {/*  {assignee?.map((user, userIndex) => (*/}
-            {/*    <div*/}
-            {/*      className="h-6 w-6 rounded-full ring-1 ring-slate-100"*/}
-            {/*      key={userIndex}*/}
-            {/*    >*/}
-            {/*      <img*/}
-            {/*        src={user.image}*/}
-            {/*        alt={user.label}*/}
-            {/*        className="w-full h-full rounded-full"*/}
-            {/*      />*/}
-            {/*    </div>*/}
-            {/*  ))}*/}
-            {/*  <div className="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-300 text-xs ring-2 ring-slate-100 dark:ring-slate-700 rounded-full h-6 w-6 flex flex-col justify-center items-center">*/}
-            {/*    +2*/}
-            {/*  </div>*/}
-            {/*</div>*/}
-          </div>
-
-          {/* total date */}
-          {/*<div className="ltr:text-right rtl:text-left">*/}
-          {/*  <span className="inline-flex items-center space-x-1 bg-danger-500 bg-opacity-[0.16] text-danger-500 text-xs font-normal px-2 py-1 rounded-full rtl:space-x-reverse">*/}
-          {/*    <span>*/}
-          {/*      {" "}*/}
-          {/*      <Icon icon="heroicons-outline:clock" />*/}
-          {/*    </span>*/}
-          {/*    <span>{totaldays}</span>*/}
-          {/*  </span>*/}
-          {/*</div>*/}
-        </div>
       </Card>
     </div>
   );

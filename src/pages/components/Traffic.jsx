@@ -12,6 +12,7 @@ import AddProject from "@/pages/app/projects/AddProject.jsx";
 import EditProject from "@/pages/app/projects/EditProject.jsx";
 import "./style.scss";
 import { ModalOpenTrafficWindow } from "@/pages/components/redisignedComponents/TrafficDetail.jsx";
+import ProjectPostPage from "@/pages/app/projects/index.jsx";
 
 const Traffic = () => {
   const [filler, setfiller] = useState("grid");
@@ -31,18 +32,50 @@ const Traffic = () => {
   }, [filler]);
 
   return (
-    <div className="traffic">
-      {`Список активных типов трафика ${projects?.length}`}
-      <div className="traffic__btn">
-        <Button
-          icon="heroicons-outline:plus"
-          text="Add Project"
-          className="btn-dark dark:bg-slate-800  h-min text-sm font-normal"
-          iconClass=" text-lg"
-          onClick={() => dispatch(openModal(true))}
+    <div className="flex flex-wrap justify-between items-center mb-4 mt-4">
+      <div className="flex mt-4">
+        <h4 className="font-medium lg:text-2xl text-xl capitalize text-slate-900 inline-block ltr:pr-4 rtl:pl-4">
+          {`Список активных типов трафика ${projects?.length}`}
+        </h4>
+        <div
+          className={`${
+            width < breakpoints.md ? "space-x-rb" : ""
+          } md:flex md:space-x-4 md:justify-end items-center rtl:space-x-reverse`}
         >
-          добавить новый
-        </Button>
+          <Button
+            icon="heroicons:list-bullet"
+            text="List view"
+            disabled={isLoaded}
+            className={`${
+              filler === "list"
+                ? "bg-slate-900 dark:bg-slate-700  text-white"
+                : " bg-white dark:bg-slate-800 dark:text-slate-300"
+            }   h-min text-sm font-normal`}
+            iconClass=" text-lg"
+            onClick={() => setfiller("list")}
+          />
+          <Button
+            icon="heroicons-outline:view-grid"
+            text="Grid view"
+            disabled={isLoaded}
+            className={`${
+              filler === "grid"
+                ? "bg-slate-900 dark:bg-slate-700 text-white"
+                : " bg-white dark:bg-slate-800 dark:text-slate-300"
+            }   h-min text-sm font-normal`}
+            iconClass=" text-lg"
+            onClick={() => setfiller("grid")}
+          />
+          <Button
+            icon="heroicons-outline:plus"
+            text="Add Project"
+            className="btn-dark dark:bg-slate-800  h-min text-sm font-normal"
+            iconClass=" text-lg"
+            onClick={() => dispatch(openModal(true))}
+          >
+            добавить новый
+          </Button>
+        </div>
       </div>
 
       <ModalOpenTrafficWindow text="добавить новый" labelText="new">
@@ -89,6 +122,7 @@ const Traffic = () => {
       )}
       {/*<AddProject />*/}
       <EditProject />
+      <div></div>
     </div>
   );
 };

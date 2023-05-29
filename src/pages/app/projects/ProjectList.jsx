@@ -14,56 +14,62 @@ import {
   useGlobalFilter,
   usePagination,
 } from "react-table";
-import logo from "@/assets/images/icons-smile/money.png";
+import logoSmileMoney from "@/assets/images/icons-smile/money.png";
 
 const ProjectList = ({ projects }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  console.log("projects", projects);
+
   const COLUMNS = [
     {
       Header: "Name",
       accessor: "name",
+      iconHeader: logoSmileMoney,
       Cell: (row) => {
         return (
-          <div className="flex space-x-3 items-center text-left rtl:space-x-reverse">
-            <div className="flex-none">
-              <div className="h-10 w-10 rounded-full text-sm bg-[#E0EAFF] dark:bg-slate-700 flex flex-col items-center justify-center font-medium -tracking-[1px]">
-                {row?.cell?.value.charAt(0) +
-                  row?.cell?.value.charAt(row?.cell?.value.length - 1)}
+          <div className="w-10">
+            <div className="flex space-x-4 items-center text-left rtl:space-x-reverse">
+              <div className="flex-none">
+                <div className="h-10 w-10 rounded-full text-sm bg-[#E0EAFF] dark:bg-slate-700 flex flex-col items-center justify-center font-medium -tracking-[1px]">
+                  <img src={logoSmileMoney} alt="" />
+                </div>
               </div>
-            </div>
-            <div className="flex-1 font-medium text-sm leading-4 whitespace-nowrap">
-              {row?.cell?.value.length > 20
-                ? row?.cell?.value.substring(0, 20) + "..."
-                : row?.cell?.value}
+              <div className="flex-1 font-medium text-sm leading-4 whitespace-nowrap">
+                {row?.cell?.value.length > 20
+                  ? row?.cell?.value.substring(0, 20) + "..."
+                  : row?.cell?.value}
+              </div>
             </div>
           </div>
         );
       },
     },
     {
-      Header: "Start Date",
-      accessor: "startDate",
+      Header: "Подписок",
+      accessor: "Подписок",
+      countOfSubscribe: 3,
       Cell: (row) => {
-        return <span>{row?.cell?.value}</span>;
+        console.log("row", row);
+        return <span>{row?.cell?.countOfSubscribe}</span>;
       },
     },
+    // {
+    //   Header: "End Date",
+    //   accessor: "endDate",
+    //   Cell: (row) => {
+    //     return <div>{row?.cell?.value}</div>;
+    //   },
+    // },
     {
-      Header: "End Date",
-      accessor: "endDate",
-      Cell: (row) => {
-        return <div>{row?.cell?.value}</div>;
-      },
-    },
-    {
-      Header: "assignee",
-      accessor: "assignee",
+      Header: "CPA",
+      accessor: "CPA",
       Cell: (row) => {
         return (
           <div>
             <div className="flex justify-end sm:justify-start lg:justify-end xl:justify-start -space-x-1 rtl:space-x-reverse">
-              {row?.cell?.value.map((user, userIndex) => (
+              {row?.cell?.value?.map((user, userIndex) => (
                 <div
                   className="h-6 w-6 rounded-full ring-1 ring-slate-100"
                   key={userIndex}
@@ -90,9 +96,6 @@ const ProjectList = ({ projects }) => {
         return (
           <span className="min-w-[220px] block">
             <ProgressBar value={row?.cell?.value} className="bg-primary-500" />
-            <span className="flex justify-between text-xs text-slate-500 dark:text-slate-400 mb-1 font-medium mt-3">
-              12/15 Task Completed
-            </span>
           </span>
         );
       },
@@ -195,12 +198,15 @@ const ProjectList = ({ projects }) => {
   } = tableInstance;
 
   const { globalFilter, pageIndex, pageSize } = state;
+
+  const styles = {
+    display: "flex",
+  };
+
   return (
     <>
-      <Card noborder>
-        <div className="md:flex justify-between items-center mb-6">
-          <h4 className="card-title">Project List</h4>
-        </div>
+      <Card>
+        <div className="md:flex justify-between items-center mb-6"></div>
         <div className="overflow-x-auto -mx-6">
           <div className="inline-block min-w-full align-middle">
             <div className="overflow-hidden ">

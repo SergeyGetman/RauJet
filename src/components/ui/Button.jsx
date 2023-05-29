@@ -16,6 +16,7 @@ function Button({
   onClick,
   div,
   changeColor,
+  color,
 }) {
   return (
     <>
@@ -30,7 +31,7 @@ function Button({
           ${disabled ? " opacity-40 cursor-not-allowed" : ""}
           ${className}
          `}
-            style={{ backgroundColor: changeColor }}
+            style={{ backgroundColor: changeColor, color: color }}
           >
             {/* if has children and not loading*/}
             {children && !isLoading && children}

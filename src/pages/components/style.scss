@@ -9,15 +9,10 @@
   flex: 1 1 auto;
   height: 100%;
 
-  button {
-    margin-top: 20px;
-  }
-
 
   &__tooltip {
   display: flex;
     align-items: center;
-    margin: 10px;
 
 
     &__input-hol {
@@ -40,7 +35,7 @@
 
 .card-header{
   margin: 20px;
-  background-color: #acc8dc;
+
 }
 
 .links-save {
@@ -49,15 +44,15 @@
   grid-gap: 1rem;
 }
 
-.traffic{
-  position: relative;
-  &__btn {
-    position: absolute;
-    margin-left: auto;
-    margin-top: -2.5rem;
-    right: 0;
-  }
-}
+//.traffic{
+//  position: relative;
+//  &__btn {
+//    position: absolute;
+//    margin-left: auto;
+//    margin-top: -2.5rem;
+//    right: 0;
+//  }
+//}
 
 .changeColor{
   background-color: #299d23;

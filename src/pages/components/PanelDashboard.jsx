@@ -31,7 +31,7 @@ const PanelDashboard = () => {
       </div>
       <div className="grid grid-cols-12 gap-5">
         <div className="lg:col-span-8 col-span-12">
-          <div className="legend-ring">
+          <div className="legend-ring bg-white">
             {
               <Card title="график" headerslot={<SelectMonth />}>
                 <BasicArea height={310} />
@@ -66,7 +66,7 @@ const PanelDashboard = () => {
 
               <div className="space-y-1">
                 <h4 className="text-slate-600 dark:text-slate-200 text-xs font-normal">
-                  Invested amount
+                  Общий доход
                 </h4>
                 <div className="text-sm font-medium text-slate-900 dark:text-white">
                   $8264.35

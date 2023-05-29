@@ -298,7 +298,7 @@ const statistics = [
     name: shapeLine4,
     title: "CPA",
     count: "12",
-    bg: "bg-[#b1daba] dark:bg-slate-900	",
+    bg: "bg-[#E5F9FF] dark:bg-slate-900	",
     backgroundImage: `url(${logo})`,
   },
 ];
@@ -307,14 +307,10 @@ const GroupChart1 = () => {
     <>
       {statistics.map((item, i) => (
         <div
-          className={`py-[18px] px-4 rounded-[6px] `}
-          style={{
-            backgroundImage: item.backgroundImage,
-            backgroundRepeat: "no-repeat",
-          }}
+          className={`py-[18px] px-4 grid rounded-[6px] md:grid-cols-3 grid-cols-1 gap-4 ${item.bg} m-3`}
           key={i}
         >
-          <div className="flex items-center space-x-6 rtl:space-x-reverse">
+          <div className="flex items-center space-x-6 rtl:space-x-reverse ">
             <div className="flex-none">
               <Chart
                 options={item.name.options}

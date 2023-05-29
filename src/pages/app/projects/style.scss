@@ -1,17 +1,18 @@
 
 .card-body{
-  background: rgb(205, 209, 231);
-  background: radial-gradient(circle, rgb(250, 250, 252) 0%, rgb(185, 185, 185) 100%);
+
   border-radius: 10px;
 }
 
 .traffic-details__cards {
+
   display: flex;
   position: absolute;
-  bottom: 0;
+  bottom: -1rem;
+  right: 4rem;
 
   button {
-    background-color: #0c213a;
+
     height: 35px;
     margin: 10px;
     text-align: center;

@@ -26,10 +26,10 @@ const RadarChart = () => {
           },
           total: {
             show: true,
-            label: "Total",
+            label: "Процент Расходов",
             color: isDark ? "#E2E8F0" : "#475569",
             formatter: function () {
-              return 249;
+              return "%";
             },
           },
         },
